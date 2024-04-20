@@ -1,0 +1,51 @@
+<main class="corpo">
+
+  <form class="Form" >
+    <h1>{{algo1}}</h1>
+    <section class="block">
+      <label>Nome Completo</label><br>
+      <input type="text" placeholder="Nome Completo" class="input" [(ngModel)]="Nome" name="Nome"><br>
+    </section>
+
+    <section class="block">
+      <label>Email</label><br>
+      <input type="email" placeholder="Email" class="input" [(ngModel)]="Email" name="Email"><br>
+    </section>
+
+    <section class="block">
+      <label>Senha</label><br>
+      <input type="password" placeholder="Senha" class="input" [(ngModel)]="Senha" name="Senha"><br>
+    </section>
+
+    <section class="block">
+      <label>Comfirmar Senha</label><br>
+      <input type="password" placeholder="Senha" class="input"  name="confSenha"><br>
+    </section>
+
+    <section class="block">
+      <label>Telefone</label><br>
+      <input type="tel" placeholder="Telefone" class="input" [(ngModel)]="Tel" maxlength="12" name="Tel"><br>
+    </section>
+
+    <section class="block">
+      <label>CPF</label><br>
+      <input type="number" placeholder="CPF" class="input" [(ngModel)]="CPFi" name="CPFi"><br>
+    </section>
+
+    <section class="block">
+      <label>CEP</label><br>
+      <input type="number" placeholder="CEP" class="input" ><br>
+    </section>
+
+    
+    
+    <button type="button" class="cadas" [disabled]="status" (click)="algo()" >Cadastrar</button>
+
+    
+
+  </form>
+
+
+</main>
+
+

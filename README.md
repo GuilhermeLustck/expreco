@@ -1,2 +1,0 @@
-# expreco
- projeto mobile

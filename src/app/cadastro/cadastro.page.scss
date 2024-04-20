@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+}
+
+.block{
+    margin: 10px;
+}
+
+.corpo{
+    position:absolute;
+    height: 1000px;
+    width: 100%;
+    background-color:#423f3f;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.Form{
+    position: relative;
+    background-color: white;
+    width: 90%;
+    padding: 10px;
+    border-radius: 20px;
+    text-align: center;
+    color: black  ;
+    overflow: hidden;
+    
+}
+.cadas{
+    border:1px solid black;
+    padding: 10px;
+    color:white;
+    background-color: rgb(75, 75, 75);
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: medium;
+    font-family:'Open Sans', 'Helvetica Neue', sans-serif;
+    
+}
+.input{
+    padding: 2px;
+    border: none;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    box-shadow: 2px 2px 5px black;
+    padding: 10px;
+
+}
