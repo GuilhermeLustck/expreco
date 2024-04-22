@@ -13,24 +13,24 @@ export class CadastroPage implements OnInit {
 
   formulario: FormGroup = new FormGroup({});
 
-  //abilita e desabilita o botão decadastramento
+  //abilita e desabilita o botão de cadastramento
   status:boolean=false ;
 
   CPFi:string=''
   Nome:string=''
   Email:string=''
   Senha:string=''
+  confSenha:string=''
   Tel:string=''
-  algo1:string=''
+
+  erro:string=''
 
   constructor (private Form: FormBuilder,private nav:Router) { }
-
-
 
   ngOnInit(): void{
     
     
-
+    //valida os campos
     this.formulario = this.Form.group({
       
       Nome: ['', [Validators.required]],
@@ -57,20 +57,27 @@ export class CadastroPage implements OnInit {
 
     // Atualizar manualmente o modelo
     this.formulario.updateValueAndValidity();
-    
-    console.log(this.formulario.value); 
-    console.log(this.formulario.valid);
    
 
     if(this.formulario.valid){
 
-      this.algo1="foi"
 
-      this.nav.navigate(["login"])
+      this.erro="foi";
+      
+      if(this.Senha==this.confSenha){
+
+        this.nav.navigate(["login"]);
+
+      }else{
+
+        this.erro="senha não são identicas";
+
+      }
+      
 
     }else{
 
-      this.algo1="falta"
+      this.erro="Não preenchido os campos"
 
     }
      
