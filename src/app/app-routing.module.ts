@@ -13,13 +13,13 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: '',
-    redirectTo: 'cadastro',
-    pathMatch: 'full'
-  },
-  {
     path: 'pagamento',
     loadChildren: () => import('./pagamento/pagamento.module').then( m => m.PagamentoPageModule)
+  },
+  {
+    path: '',
+    redirectTo: 'pagamento',
+    pathMatch: 'full'
   },
 ];
 
