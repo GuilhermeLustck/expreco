@@ -1,9 +1,6 @@
 <main class="corpo">
-
   <form class="Form">
-
-    <h3>{{erro}}</h3>
-
+    <h1>{{ erro }}</h1>
     <section class="block">
       <label>Nome Completo</label><br>
       <input type="text" placeholder="Nome Completo" class="input" [(ngModel)]="Nome" name="Nome"><br>
@@ -20,8 +17,8 @@
     </section>
 
     <section class="block">
-      <label>Comfirmar Senha</label><br>
-      <input type="password" placeholder="Senha" class="input"  name="confSenha" [(ngModel)]="confSenha" name="confSenha"><br>
+      <label>Confirmar Senha</label><br>
+      <input type="password" placeholder="Senha" class="input"><br>
     </section>
 
     <section class="block">
@@ -31,19 +28,17 @@
 
     <section class="block">
       <label>CPF</label><br>
-      <input type="number" placeholder="CPF" class="input" [(ngModel)]="CPFi" name="CPFi" maxlength="12"><br>
+      <input type="number" placeholder="CPF" class="input" [(ngModel)]="CPF" name="CPF"><br>
     </section>
 
     <section class="block">
       <label>CEP</label><br>
       <input type="number" placeholder="CEP" class="input" ><br>
     </section>
-    
-    <button type="button" class="cadas" [disabled]="status" (click)="algo()" >Cadastrar</button>
 
-    
-
+    <button type="button" class="cadas" [disabled]="status" (click)="algo()">Cadastrar</button>
   </form>
 </main>
+
 
 
