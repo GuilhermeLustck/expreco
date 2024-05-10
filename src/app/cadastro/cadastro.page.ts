@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder,FormGroup,Validator,FormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
-
+import { DadosService } from '../conf/dados.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -11,76 +10,61 @@ import { NavController } from '@ionic/angular';
 })
 export class CadastroPage implements OnInit {
 
+
   formulario: FormGroup = new FormGroup({});
 
-  //abilita e desabilita o botão de cadastramento
+  //abilita e desabilita o botão decadastramento
   status:boolean=false ;
 
-  CPFi:string=''
+  CPF:string=''
   Nome:string=''
   Email:string=''
   Senha:string=''
-  confSenha:string=''
   Tel:string=''
-
   erro:string=''
 
-  constructor (private Form: FormBuilder,private nav:Router) { }
+  constructor( private Form:FormBuilder,private sev:DadosService,private rot:Router) { }
 
   ngOnInit(): void{
     
-    
-    //valida os campos
     this.formulario = this.Form.group({
-      
-      Nome: ['', [Validators.required]],
+      Nome: ['', [Validators.required,Validators.minLength(5)]],
       Email: ['', [Validators.required, Validators.email]],
       Senha: ['', [Validators.required]],
-      CPFi: ['', [Validators.required]],
+      CPF: ['', [Validators.required]],
       Tel: ['', [Validators.minLength(9), Validators.required]],
+      
     });
-    
-    console.log("FormGroup inicializado:", this.formulario.value);
-    
   }
-  
+
   algo(){
 
-    this.formulario.setValue({
-      Nome: this.Nome,
-      Email: this.Email,
-      Senha: this.Senha,
-      CPFi: this.CPFi,
-      Tel: this.Tel
-    });
+    //this.CPFi='123456879'
+    //this.Nome='algo da silva'
+    //this.Email='algo@gmail.com'
+    //this.Senha='nadapornada'
+    //this.Tel='147258369'
+    
 
-
-    // Atualizar manualmente o modelo
-    this.formulario.updateValueAndValidity();
-   
+    console.log(this.formulario.valid)
+    console.log(this.formulario)
 
     if(this.formulario.valid){
 
-
-      this.erro="foi";
+      this.erro="foi"
       
-      if(this.Senha==this.confSenha){
-
-        this.nav.navigate(["login"]);
-
-      }else{
-
-        this.erro="senha não são identicas";
-
-      }
-      
+      this.sev.cadas({
+        CEPi: this.CPF ,
+        Nome: this.Nome,
+        Email: this.Email,
+        Senha: this.Senha,
+        Tel: this.Tel,
+      })
+      this.rot.navigate(["Login"])
 
     }else{
-
-      this.erro="Não preenchido os campos"
-
+      this.erro="falta"
     }
      
   }
-
 }

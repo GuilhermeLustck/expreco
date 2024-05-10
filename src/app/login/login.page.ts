@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { DadosService } from '../conf/dados.service';
+
 
 @Component({
   selector: 'app-login',
@@ -8,9 +9,26 @@ import { NavController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
 
-  constructor() { }
+  email:string=""
+  senha:string=""
+  erro:string=""
+
+  constructor(private serv:DadosService) { }
 
   ngOnInit() {
   }
+  
+ 
+valid(){
+
+  if(this.serv.login({Email:this.email,Senha:this.senha})){
+
+    this.erro="logado"
+  }else{
+    this.erro="não logado"
+  }
+
+}
+
 
 }
