@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder,FormGroup,Validator,FormsModule, Validators } from '@angular/forms';
+import { Component, OnInit, input } from '@angular/core';
+import { FormBuilder,FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DadosService } from '../conf/dados.service';
+import { CssSelector } from '@angular/compiler';
 
 @Component({
   selector: 'app-cadastro',
@@ -11,7 +12,7 @@ import { DadosService } from '../conf/dados.service';
 export class CadastroPage implements OnInit {
 
 
-  formulario: FormGroup = new FormGroup({});
+ 
 
   //abilita e desabilita o botão decadastramento
   status:boolean=false ;
@@ -20,50 +21,84 @@ export class CadastroPage implements OnInit {
   Nome:string=''
   Email:string=''
   Senha:string=''
+  confSenha:string=''
   Tel:string=''
   erro:string=''
+  cep:number=0
 
-  constructor( private Form:FormBuilder,private sev:DadosService,private rot:Router) { }
+  cssSenha1:string=''
+  cssSenha2:string=''
 
-  ngOnInit(): void{
-    
-    this.formulario = this.Form.group({
-      Nome: ['', [Validators.required,Validators.minLength(5)]],
-      Email: ['', [Validators.required, Validators.email]],
-      Senha: ['', [Validators.required]],
-      CPF: ['', [Validators.required]],
-      Tel: ['', [Validators.minLength(9), Validators.required]],
-      
-    });
+  statusSenha:boolean=false
+
+
+  //excluir depois
+  nada:any
+
+
+
+
+
+  constructor( private sev:DadosService, public rot:Router ) { }
+
+  ngOnInit(){}
+
+
+  validsenha(){
+
+
+    if(this.Senha.length <= 10 && this.confSenha.length <= 10 ){
+       
+      this.cssSenha1="invalid"
+     
+    }else if( this.Senha !== this.confSenha ){
+
+      this.cssSenha2="invalid"
+
+    }else if( this.confSenha.length <= 10 ){
+
+      this.cssSenha2="invalid"
+ 
+    }else{
+
+      this.cssSenha1="valid"
+      this.cssSenha2="valid"
+      this.statusSenha=true
+
+    }
+  
+
   }
+
+
 
   algo(){
 
-    //this.CPFi='123456879'
-    //this.Nome='algo da silva'
-    //this.Email='algo@gmail.com'
-    //this.Senha='nadapornada'
-    //this.Tel='147258369'
-    
-
-    console.log(this.formulario.valid)
-    console.log(this.formulario)
-
-    if(this.formulario.valid){
+    if(this.CPF != "" && this.Email != "" && this.Nome != ""){
 
       this.erro="foi"
-      
+
+      if(
       this.sev.cadas({
-        CEPi: this.CPF ,
+        CPFi: this.CPF ,
         Nome: this.Nome,
         Email: this.Email,
         Senha: this.Senha,
         Tel: this.Tel,
-      })
-      this.rot.navigate(["Login"])
+      })){
+
+        this.rot.navigate(["login"])
+
+        this.erro="Login"
+      }
+
+      
+
 
     }else{
+
       this.erro="falta"
+      
     }
      
   }

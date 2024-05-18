@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+}
+
+.corpo{
+    position:absolute;
+    height: 100%;
+    width: 100%;
+    padding:10px;
+    background-color:#423f3f;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.sub-body{
+    position: relative;
+    //top: -40%;
+    background-color: white;
+    width: 90%;
+    padding: 10px;
+    border-radius: 40px;
+    text-align: center;
+    color: black  ;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.prod{
+    position: relative;
+    width: 90%;
+    height: 400px;
+    box-shadow: 2px 2px 2px 2px  #423f3f;
+    overflow-x: hidden;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+.info{
+    position: relative;
+    width: 90%;
+    height: 100px;
+    box-shadow: 2px 2px 2px 2px  #423f3f;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+
+
+}
+.paga{
+
+    position: relative;
+    width: 90%;
+    height: 100px;
+    box-shadow: 2px 2px 2px 2px  #423f3f;
+    border-radius: 20px;
+   
+
+}
+ion-avatar{
+
+    height: auto;
+    margin: 1%;
+
+}
+.per{
+    width:20%;
+  
+}
+
+.pagam{
+
+    position: relative;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    
+
+}
+
+.user{
+    position: relative;
+    color: black;
+}

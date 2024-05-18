@@ -8,17 +8,33 @@
 
     <section class="block">
       <label>Email</label><br>
-      <input type="email" placeholder="Email" class="input" [(ngModel)]="Email" name="Email"><br>
+      <input type="email" 
+      placeholder="Email" 
+      class="input" 
+      [(ngModel)]="Email" 
+      name="Email"><br>
     </section>
 
     <section class="block">
       <label>Senha</label><br>
-      <input type="password" placeholder="Senha" class="input" [(ngModel)]="Senha" name="Senha"><br>
+      <input type="password" 
+      placeholder="Senha"
+      class="input" 
+      (keyup)="validsenha()" 
+      [ngClass]="cssSenha1" 
+      [(ngModel)]="Senha" 
+      name="Senha"><br>
     </section>
 
     <section class="block">
       <label>Confirmar Senha</label><br>
-      <input type="password" placeholder="Senha" class="input"><br>
+      <input type="password" 
+      placeholder="Senha" 
+      class="input" 
+      (keyup)="validsenha()" 
+      [ngClass]="cssSenha2" 
+      [(ngModel)]="confSenha" 
+      name="confSenha"><br>
     </section>
 
     <section class="block">
@@ -33,8 +49,18 @@
 
     <section class="block">
       <label>CEP</label><br>
-      <input type="number" placeholder="CEP" class="input" ><br>
+      <input type="number" placeholder="CEP" class="input" [(ngModel)]="cep" name="cep" ><br>
     </section>
+
+    <p>{{nada}}</p>
+    <p>{{nada.Senha}}</p>
+    <p>{{nada.conf}}</p>
+    <p>{{nada.Nome}}</p>
+    <p>{{nada.Email}}</p>
+    <p>{{nada.Tel}}</p>
+    <p>{{nada.CPF}}</p>
+    
+
 
     <button type="button" class="cadas" [disabled]="status" (click)="algo()">Cadastrar</button>
   </form>

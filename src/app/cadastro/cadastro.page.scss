@@ -50,3 +50,11 @@
     padding: 10px;
 
 }
+.valid{
+    border: none;
+    box-shadow: 2px 2px 10px rgb(11, 255, 3);
+}
+.invalid{
+    border: none;
+    box-shadow: 2px 2px 10px rgb(146, 7, 7);
+}
