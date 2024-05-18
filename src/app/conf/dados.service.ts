@@ -1,29 +1,36 @@
 import { Injectable } from '@angular/core';
 
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class DadosService {
 
   constructor() { }
-
+  
   CPFi:string=''
   Nome:string=''
   Email:string=''
   Senha:string=''
   Tel:string=''
+  CEPi:string=''
+  //---------------------------------------------------------------------------------------------
   dados:any
   user:any
+
+  
  
   
   
   cadas(values:any){
 
-    this.CPFi  = values.CPF
-    this.Nome  = values.Nome
-    this.Email = values.Email
-    this.Senha = values.Senha
-    this.Tel   = values.Tel
+    this.CPFi  = values.CPF,
+    this.Nome  = values.Nome,
+    this.Email = values.Email,
+    this.Senha = values.Senha,
+    this.Tel   = values.Tel,
+    this.CEPi = values.cep
     
     this.dados={
       "Nome":this.Nome,
@@ -34,8 +41,14 @@ export class DadosService {
     }
 
     localStorage.setItem("user",JSON.stringify(this.dados))
+
+    return true
     
   }
+
+
+
+
 
   login(val:any){
     this.Email=val.email
@@ -56,6 +69,15 @@ export class DadosService {
 
 
 
+  }
+
+  exibirUser(){
+    this.user=localStorage.getItem("user")
+    this.user=JSON.parse(this.user)
+
+
+
+    return this.user
   }
 
 }
