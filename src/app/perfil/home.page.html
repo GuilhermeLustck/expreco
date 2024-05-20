@@ -1,0 +1,66 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Perfil</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-card>
+      <ion-item lines="none">
+        <ion-avatar slot="start">
+          <img src="assets/img/avatar.png">
+        </ion-avatar>
+        <ion-label>
+          <h2>souto</h2>
+          <p>soutinho</p>
+        </ion-label>
+      </ion-item>
+  
+      <ion-card-content>
+        <ion-list>
+          <ion-item>
+            <ion-icon name="mail" slot="start"></ion-icon>
+            <ion-label>Email</ion-label>
+            <ion-text>soutoeu.com</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="call" slot="start"></ion-icon>
+            <ion-label>Telefone</ion-label>
+            <ion-text>(21) 9999-9999</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="location" slot="start"></ion-icon>
+            <ion-label>Endereço</ion-label>
+            <ion-text>eusla, rj, br</ion-text>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+    <ion-button  (click)="toggleCard()" expand="block" shape="round" color="medium"> Histórico de compras </ion-button>
+    <ion-card *ngIf="showCard">
+      <ion-card-header>
+        <ion-card-title>Compras</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Compra 1
+        Compra 2
+        Compra 3
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
+</ion-content>
