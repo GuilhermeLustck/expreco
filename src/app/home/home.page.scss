@@ -26,13 +26,21 @@
   text-decoration: none;
 }
 
-html {
-  background-color: #423F3F;
+ion-avatar {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
 }
 
-.algo {
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  
+ion-card {
+  margin-top: 20px;
+}
+
+ion-card-content {
+  padding: 0;
+}
+
+ion-item {
+  --padding-start: 16px;
+  --inner-padding-end: 16px;
 }
