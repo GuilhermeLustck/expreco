@@ -6,7 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
+     showCard = false;
   constructor() {}
-
+    
+  toggleCard() {
+    this.showCard = !this.showCard;
+  }
 }
