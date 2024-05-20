@@ -1,8 +1,8 @@
-import { Component, OnInit, input } from '@angular/core';
-import { FormBuilder,FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+
 import { DadosService } from '../conf/dados.service';
-import { CssSelector } from '@angular/compiler';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-cadastro',
@@ -17,33 +17,31 @@ export class CadastroPage implements OnInit {
   //abilita e desabilita o botão decadastramento
   status:boolean=false ;
 
-  CPF:string=''
-  Nome:string=''
-  Email:string=''
-  Senha:string=''
-  confSenha:string=''
-  Tel:string=''
-  erro:string=''
-  cep:number=0
+  CPF:string='';
+  Nome:string='';
+  Email:string='';
+  Senha:string='';
+  confSenha:string='';
+  Tel:string='';
+  erro:string='';
+  cep:number=0;
+  //__________________________________________________________
+  cssSenha1:string='';
+  cssSenha2:string='';
 
-  cssSenha1:string=''
-  cssSenha2:string=''
-
-  statusSenha:boolean=false
-
-
-  //excluir depois
-  nada:any
+  statusSenha:boolean=false;
 
 
 
 
 
-  constructor( private sev:DadosService, public rot:Router ) { }
+
+
+  constructor( private sev:DadosService, private rot:Router ) { }
 
   ngOnInit(){}
 
-
+//validaçã da senha
   validsenha(){
 
 
@@ -72,12 +70,14 @@ export class CadastroPage implements OnInit {
 
 
 
-  algo(){
+  cadastro01(){
 
     if(this.CPF != "" && this.Email != "" && this.Nome != ""){
 
       this.erro="foi"
 
+      
+      //enviando ao service para o cadastro
       if(
       this.sev.cadas({
         CPFi: this.CPF ,
@@ -85,16 +85,15 @@ export class CadastroPage implements OnInit {
         Email: this.Email,
         Senha: this.Senha,
         Tel: this.Tel,
+        CEPi:this.cep,
       })){
 
-        this.rot.navigate(["login"])
+        this.erro="Cadastrado"
 
-        this.erro="Login"
+        this.rot.navigate(["login"])
       }
 
       
-
-
     }else{
 
       this.erro="falta"
