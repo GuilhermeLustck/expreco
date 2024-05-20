@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-     showCard = false;
-  constructor() {}
-    
-  toggleCard() {
-    this.showCard = !this.showCard;
+
+  constructor(private navCtrl: NavController) {}
+
+  goToProductDetail() {
+    this.navCtrl.navigateForward('/product-detail');
   }
 }

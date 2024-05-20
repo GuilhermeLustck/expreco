@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>product-detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-img [src]="product.imageUrl"></ion-img>
+    <ion-card-header>
+      <ion-card-title>{{ product.name }}</ion-card-title>
+      <ion-card-subtitle>R$ {{ product.price | number:'1.2-2' }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{ product.description }}</p>
+      <ion-item>
+        <ion-label>Categoria:</ion-label>
+        <ion-text>{{ product.category }}</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Disponibilidade:</ion-label>
+        <ion-text>{{ product.availability ? 'Em estoque' : 'Fora de estoque' }}</ion-text>
+      </ion-item>
+    </ion-card-content>
+    <ion-button expand="full" color="primary" (click)="addToCart()">Adicionar ao Carrinho</ion-button>
+  </ion-card>
+</ion-content>
