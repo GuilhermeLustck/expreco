@@ -47,10 +47,12 @@
 .info{
     position: relative;
     width: 90%;
-    height: 100px;
+    height: 150px;
     box-shadow: 2px 2px 2px 2px  #423f3f;
     border-radius: 20px;
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
     overflow: hidden;
 
 
@@ -69,6 +71,7 @@ ion-avatar{
 
     height: auto;
     margin: 1%;
+    
 
 }
 .per{
@@ -88,4 +91,6 @@ ion-avatar{
 .user{
     position: relative;
     color: black;
+    font-size: 20px;
+    padding: 0;
 }
