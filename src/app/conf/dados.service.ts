@@ -77,15 +77,6 @@ export class DadosService {
 
 
 
-
-
-
-
-
-
-
-
-
   exibirUser(){
     this.user=localStorage.getItem("user")
     this.user=JSON.parse(this.user)
@@ -95,4 +86,5 @@ export class DadosService {
     return this.user
   }
 
+  
 }
