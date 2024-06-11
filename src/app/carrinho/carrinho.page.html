@@ -1,5 +1,11 @@
 <main class="corpo">
-  
+
+  <ion-toolbar class="menu">
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+
   <section class="block">
      <section *ngFor="let cont of anunci" >
 
@@ -20,3 +26,8 @@
 
 
 </main>
+<footer class="footer">
+  <ion-button>
+    comprar
+  </ion-button>
+</footer>

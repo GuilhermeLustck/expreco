@@ -52,3 +52,5 @@ function canActivate(reason: any): Routes | Type<any> | NgModuleFactory<any> | D
   throw new Error('Function not implemented.');
 }
 
+//Senha:ADMBullet
+//Email:ADM.algo@bullet.com

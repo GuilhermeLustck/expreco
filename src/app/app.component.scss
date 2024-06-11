@@ -5,6 +5,7 @@
 .menu-header-bg {
     height: 180px;
     width: 350px;
+    
     background: #790808;
     background: linear-gradient(90deg #790808, #9b1f1f 100%);
     box-shadow: 0px 1px 10px rgba(253, 1, 1, 0.5);
@@ -16,7 +17,7 @@
 }
 
 .header-content {
-    position: relative;
+    position: absolute;
     top: -10%;
     left: 15px;
     display: block;
