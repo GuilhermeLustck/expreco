@@ -1,0 +1,31 @@
+
+
+.corpo{
+    background-color: #423f3f;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    color: black;
+    overflow: auto;
+    
+}
+.conteudo{
+    position: relative;
+    width: 330px;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    margin-top: 15px;
+    padding: 1px;
+    border-radius: 5px;
+    
+
+    
+    
+}
+.block{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

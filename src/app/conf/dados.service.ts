@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 
 @Injectable({
@@ -8,67 +8,49 @@ import { Injectable } from '@angular/core';
 
 export class DadosService {
 
-  constructor() { }
+  constructor(private auth:AngularFireAuth) { }
   
-  CPFi:string=''
-  Nome:string=''
-  Email:string=''
-  Senha:string=''
-  Tel:string=''
-  CEPi:string=''
-  EmailLogin:string=''
-  SenhaLogin:string=''
+  
+  id:any
   //---------------------------------------------------------------------------------------------
-  dados:any
-  user:any
+
 
   
  
   
   
-  cadas(values:any){
-
-    this.CPFi  = values.CPFi,
-    this.Nome  = values.Nome,
-    this.Email = values.Email,
-    this.Senha = values.Senha,
-    this.Tel   = values.Tel,
-    this.CEPi = values.CEPi
+  async cadas(senha:string,email:string){
+    try{
+      await this.auth.createUserWithEmailAndPassword(email,senha);
     
-    this.dados={
-      "Nome":this.Nome,
-      "Email":this.Email,
-      "Senha":this.Senha,
-      "CPF":this.CPFi,
-      "Tel":this.Tel,
-      "CEP":this.CEPi
+      console.log("cadastrado");
+      
+    }catch(erro:any){
+
+      console.log(erro);
+
     }
-
-    localStorage.setItem("user",JSON.stringify(this.dados))
-
-    return true
+    
+   
     
   }
 
+  async login(senha:string,email:string){
+    try{
+      await this.auth.signInWithEmailAndPassword(senha,email);
+      const user= await this.auth.currentUser
+      this.id=user?.uid
 
+      
+      sessionStorage.setItem("uidUser",this.id)
+      console.log("foi logado")
+      
+      
 
+    }catch(erro:any){
 
+      console.log(erro)
 
-  login(val:any){
-    this.EmailLogin=val.LEmail
-    this.SenhaLogin=val.LSenha
-
-    this.user=localStorage.getItem("user")
-
-    this.user=JSON.parse(this.user)
-
-    if(this.user.Senha === this.SenhaLogin && this.user.Email===this.EmailLogin){
-
-      return true
-
-    }else{
-
-      return false
     }
 
 
@@ -77,14 +59,7 @@ export class DadosService {
 
 
 
-  exibirUser(){
-    this.user=localStorage.getItem("user")
-    this.user=JSON.parse(this.user)
-
-
-
-    return this.user
-  }
+  
 
   
 }

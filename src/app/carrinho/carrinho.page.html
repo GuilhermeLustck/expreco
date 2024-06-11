@@ -1,13 +1,22 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>carrinho</ion-title>
-  </ion-toolbar>
-</ion-header>
+<main class="corpo">
+  
+  <section class="block">
+     <section *ngFor="let cont of anunci" >
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">carrinho</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content>
+      <main class="conteudo">
+        <section>
+          <p>{{cont.nome}}</p> <p>{{cont.produto}}</p>
+        </section>
+        <section>
+          <p>{{cont.descricao}}</p>
+          <p>{{cont.valor}}</p>
+        </section>
+      </main>
+
+     </section>
+  </section>
+
+  
+
+
+</main>

@@ -9,7 +9,25 @@ import { Router } from '@angular/router';
 export class AppComponent {
   constructor(private rota:Router) {}
 
-  ancora(){
-    this.rota.navigate(["cadastro"])
+  cadastro(){
+    this.rota.navigate(["cadastro"]);
+  }
+
+  carrinho(){
+    this.rota.navigate(["carrinho"]);
+  }
+
+  pagamento(){
+    this.rota.navigate(["pagamento"]);
+  }
+
+  Login(){
+    this.rota.navigate(["login"]);
+  }
+  menu(){
+    this.rota.navigate(["menu"])
+  }
+  perfil(){
+    this.rota.navigate(["perfil"])
   }
 }

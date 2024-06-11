@@ -11,7 +11,7 @@ export class LoginPage implements OnInit {
   email:string=""
   senha:string=""
   erro:string=""
-  resul:boolean=false
+  resul:any
 
   constructor(private serv:DadosService,private rot:Router) { }
 
@@ -22,22 +22,22 @@ export class LoginPage implements OnInit {
 valid(){
 
   //enviando para o service para validaçao de Login 
-  this.resul=this.serv.login({
-    LEmail:this.email,
-    LSenha:this.senha
 
-  })
-//vficaçao do retorno do service (false ou true) em boolean
+  this.resul=this.serv.login(this.email,this.senha)
+
+  //verificaçao do retorno do service
   if(this.resul){
 
     this.erro="logado"
-    this.rot.navigate(["pagamento"]);
+    
+    this.rot.navigate(["menu"]);
 
   }else{
 
     this.erro="Email ou senha incorreta"
     
   }
+
 
 }
 

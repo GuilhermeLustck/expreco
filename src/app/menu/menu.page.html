@@ -12,6 +12,23 @@
 
 <section class="container">
   <section class="home-background">
+    <main class="corpo">
+  
+      <section class="block">
+         <section *ngFor="let cont of anunci" >
     
+          <main class="conteudo">
+            <section>
+              <p>{{cont.nome}}</p> <p>{{cont.produto}}</p>
+            </section>
+            <section>
+              <p>{{cont.descricao}}</p>
+              <p>{{cont.valor}}</p>
+            </section>
+          </main>
+    
+         </section>
+      </section>
+    </main>
   </section>
 </section>

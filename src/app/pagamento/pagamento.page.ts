@@ -14,8 +14,7 @@ export class PagamentoPage implements OnInit {
 
   ngOnInit() {
 
-    this.Usuario=this.serv.exibirUser()
-    console.log(this.Usuario)
+    
   }
 
   pagamento(){

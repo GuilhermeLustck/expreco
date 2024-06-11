@@ -1,5 +1,6 @@
-import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { NgModule, NgModuleFactory, Type } from '@angular/core';
+import { DefaultExport, PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { autorizacaoGuard } from './guard/autorizacao.guard';
 
 const routes: Routes = [
   {
@@ -12,11 +13,13 @@ const routes: Routes = [
   },
   {
     path: 'pagamento',
-    loadChildren: () => import('./pagamento/pagamento.module').then( m => m.PagamentoPageModule)
+    loadChildren: () => import('./pagamento/pagamento.module').then( m => m.PagamentoPageModule),
+    canActivate:[autorizacaoGuard]
   },
   {
     path: 'perfil',
-    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
+    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule),
+    canActivate:[autorizacaoGuard]
   },
   {
     path: 'product-detail',
@@ -28,7 +31,8 @@ const routes: Routes = [
   },
   {
     path: 'carrinho',
-    loadChildren: () => import('./carrinho/carrinho.module').then( m => m.CarrinhoPageModule)
+    loadChildren: () => import('./carrinho/carrinho.module').then( m => m.CarrinhoPageModule),
+    canActivate:[autorizacaoGuard]
   },
   {
     path: '',
@@ -44,3 +48,7 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+function canActivate(reason: any): Routes | Type<any> | NgModuleFactory<any> | DefaultExport<Type<any>> | DefaultExport<Routes> | PromiseLike<Routes | Type<any> | NgModuleFactory<any> | DefaultExport<Type<any>> | DefaultExport<Routes>> {
+  throw new Error('Function not implemented.');
+}
+

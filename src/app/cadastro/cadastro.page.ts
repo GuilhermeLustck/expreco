@@ -45,7 +45,7 @@ export class CadastroPage implements OnInit {
   validsenha(){
 
 
-    if(this.Senha.length <= 10 && this.confSenha.length <= 10 ){
+    if(this.Senha.length <= 6 && this.confSenha.length <= 6 ){
        
       this.cssSenha1="invalid"
      
@@ -53,7 +53,7 @@ export class CadastroPage implements OnInit {
 
       this.cssSenha2="invalid"
 
-    }else if( this.confSenha.length <= 10 ){
+    }else if( this.confSenha.length <= 6 ){
 
       this.cssSenha2="invalid"
  
@@ -70,33 +70,20 @@ export class CadastroPage implements OnInit {
 
 
 
-  cadastro01(){
+  async cadastro01(){
 
-    if(this.CPF != "" && this.Email != "" && this.Nome != ""){
+    if(this.CPF != "" && this.Email != "" && this.Nome != "" ){
 
       this.erro="foi"
 
       
       //enviando ao service para o cadastro
-      if(
-      this.sev.cadas({
-        CPFi: this.CPF ,
-        Nome: this.Nome,
-        Email: this.Email,
-        Senha: this.Senha,
-        Tel: this.Tel,
-        CEPi:this.cep,
-      })){
-
-        this.erro="Cadastrado"
-
-        this.rot.navigate(["login"])
-      }
+      await this.sev.cadas(this.Email,this.Senha)
 
       
     }else{
 
-      this.erro="falta"
+      this.erro="falta" + this.Email
       
     }
      

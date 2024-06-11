@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CarrinhoService } from '../conf/carrinho.service';
 
 @Component({
   selector: 'app-carrinho',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./carrinho.page.scss'],
 })
 export class CarrinhoPage implements OnInit {
-
-  constructor() { }
+  anunci:any
+  constructor( private carrin:CarrinhoService) { }
 
   ngOnInit() {
+    this.anunci=this.carrin.get()
   }
-
+  
+  
 }
