@@ -14,9 +14,18 @@ export class PagamentoPage implements OnInit {
   ender:any
   constructor(private serv:DadosService,private api:ApiCepService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
 
-  this.ender=this.api.getCep()
+    this.ender=await (await this.api.getCep()).subscribe(
+      (data)=>{
+        this.ender=data
+        console.log(this.ender)
+      },
+      (error)=>{
+        console.error
+      }
+    )
+    console.log(this.ender)
 
   }
 

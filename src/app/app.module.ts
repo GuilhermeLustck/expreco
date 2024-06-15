@@ -15,6 +15,9 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 
+
+
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -25,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
       AngularFireModule.initializeApp(environment.firebaseConfig),
       AngularFireModule,
       HttpClientModule
+      
     
     
     
