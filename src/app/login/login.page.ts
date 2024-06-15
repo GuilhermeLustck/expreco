@@ -19,18 +19,19 @@ export class LoginPage implements OnInit {
   }
   
  
-valid(){
+  async valid(){
 
   //enviando para o service para validaçao de Login 
+  this.resul=null
 
-  this.resul=this.serv.login(this.email,this.senha)
+  this.resul= await this.serv.login(this.senha,this.email)
 
   //verificaçao do retorno do service
   if(this.resul){
 
     this.erro="logado"
     
-    this.rot.navigate(["menu"]);
+    //this.rot.navigate(["menu"]);
 
   }else{
 
@@ -41,5 +42,14 @@ valid(){
 
 }
 
+async google(){
 
+  await this.serv.googleValid()
+  try{
+    this.rot.navigate(["menu"])
+  }catch(erro){
+    this.erro="erro ao locar"
+  }
+
+}
 }

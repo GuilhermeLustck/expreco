@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { DadosService } from './conf/dados.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor(private rota:Router) {}
+  constructor(private rota:Router,private serv:DadosService) {}
 
   cadastro(){
     this.rota.navigate(["cadastro"]);
@@ -24,10 +25,17 @@ export class AppComponent {
   Login(){
     this.rota.navigate(["login"]);
   }
+  
   menu(){
     this.rota.navigate(["menu"])
   }
+
   perfil(){
     this.rota.navigate(["perfil"])
+  }
+
+  logaut(){
+    this.serv.sair()
+    this.rota.navigate(["menu"])
   }
 }

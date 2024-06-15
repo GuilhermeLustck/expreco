@@ -3,7 +3,7 @@
 }
 
 .block{
-    margin: 50px;
+    margin: 25px;
     padding: 5px;
 }
 
@@ -17,6 +17,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 
 }
 
@@ -31,6 +32,7 @@
     overflow: hidden;
     
     
+    
 }
 .login{
     border:1px solid black;
@@ -41,6 +43,7 @@
     font-weight: bold;
     font-size: large;
     font-family:'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-left: 3px;
     
 }
 .input{

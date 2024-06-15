@@ -24,7 +24,7 @@ export class CadastroPage implements OnInit {
   confSenha:string='';
   Tel:string='';
   erro:string='';
-  cep:number=0;
+  cep:string=""
   //__________________________________________________________
   cssSenha1:string='';
   cssSenha2:string='';
@@ -72,15 +72,14 @@ export class CadastroPage implements OnInit {
 
   async cadastro01(){
 
-    if(this.CPF != "" && this.Email != "" && this.Nome != "" ){
+    if( this.Email != "" && this.statusSenha){
 
       this.erro="foi"
 
-      
+      localStorage.setItem("cep",this.cep)
+
       //enviando ao service para o cadastro
       await this.sev.cadas(this.Email,this.Senha)
-
-      
     }else{
 
       this.erro="falta" + this.Email
