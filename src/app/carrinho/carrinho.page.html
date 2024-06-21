@@ -11,10 +11,11 @@
 
       <main class="conteudo">
         <section>
-          <p>{{cont.nome}}</p> <p>{{cont.produto}}</p>
+          <p>{{cont.nome}}</p> <p>{{cont.categoria}}</p>
         </section>
         <section>
           <p>{{cont.descricao}}</p>
+          <p>{{cont.temEmEstoque ? 'Em estoque' : 'Fora de estoque'}}</p>
           <p>{{cont.valor}}</p>
         </section>
       </main>
@@ -27,7 +28,7 @@
 
 </main>
 <footer class="footer">
-  <ion-button>
+  <ion-button (click)="paga()">
     comprar
   </ion-button>
 </footer>

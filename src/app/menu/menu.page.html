@@ -17,12 +17,14 @@
       <section class="block">
          <section *ngFor="let cont of anunci" >
     
-          <main class="conteudo">
+          <main class="conteudo" (click)="detall(cont.id)">
             <section>
-              <p>{{cont.nome}}</p> <p>{{cont.produto}}</p>
+              <p>{{cont.nome}}</p> 
+              <p>{{cont.categoria}}</p>
             </section>
             <section>
               <p>{{cont.descricao}}</p>
+              <p>{{cont.temEmEstoque ? 'Em estoque' : 'Fora de estoque'}}</p>
               <p>{{cont.valor}}</p>
             </section>
           </main>

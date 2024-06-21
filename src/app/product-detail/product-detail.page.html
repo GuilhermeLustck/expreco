@@ -1,7 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>product-detail</ion-title>
+    <ion-title class="titulo">product-detail</ion-title>
+    
+    <ion-icon name="arrow-forward-outline" class="voltar" (click)="voltar()" ></ion-icon>
+    
   </ion-toolbar>
+  
 </ion-header>
 
 <ion-content>
@@ -22,6 +26,6 @@
         <ion-text>{{ product.availability ? 'Em estoque' : 'Fora de estoque' }}</ion-text>
       </ion-item>
     </ion-card-content>
-    <ion-button expand="full" color="primary" (click)="addToCart()">Adicionar ao Carrinho</ion-button>
+    <ion-button expand="full" color="primary" (click)="addToCart()" color="dark" >Adicionar ao Carrinho</ion-button>
   </ion-card>
 </ion-content>

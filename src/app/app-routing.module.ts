@@ -1,6 +1,8 @@
 import { NgModule, NgModuleFactory, Type } from '@angular/core';
 import { DefaultExport, PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { autorizacaoGuard } from './guard/autorizacao.guard';
+import { ProductDetailPage } from './product-detail/product-detail.page';
+import { pagamGuard } from './guard/pagam.guard';
 
 const routes: Routes = [
   {
@@ -14,7 +16,7 @@ const routes: Routes = [
   {
     path: 'pagamento',
     loadChildren: () => import('./pagamento/pagamento.module').then( m => m.PagamentoPageModule),
-    canActivate:[autorizacaoGuard]
+    canActivate:[autorizacaoGuard,pagamGuard]
   },
   {
     path: 'perfil',
@@ -25,6 +27,7 @@ const routes: Routes = [
     path: 'product-detail',
     loadChildren: () => import('./product-detail/product-detail.module').then( m => m.ProductDetailPageModule)
   },
+  { path: 'product-detail/:id', component:ProductDetailPage },
   {
     path: 'menu',
     loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule)

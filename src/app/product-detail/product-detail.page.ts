@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CarrinhoService } from '../conf/carrinho.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -9,24 +10,33 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductDetailPage implements OnInit {
 
   product: any;
-
-  constructor(private route: ActivatedRoute) { }
+  prod:any
+  id:any
+  constructor(private route: ActivatedRoute,private dados:CarrinhoService,private rot:Router) { }
 
   ngOnInit() {
     // Simulação de dados do produto
+    this.id=this.route.snapshot.paramMap.get('id')
+    this.prod=this.dados.divOBJ(Number(this.id))
+    
     this.product = {
-      id: this.route.snapshot.paramMap.get('id'),
-      name: 'Produto Exemplo',
+      id: this.id,
+      name: this.prod.nome,
       imageUrl: 'https://via.placeholder.com/150',
-      price: 199.99,
-      description: 'Esta é a descrição do produto exemplo. Ele é incrível e você vai adorá-lo!',
-      category: 'Eletrônicos',
-      availability: true
+      price: this.prod.valor,
+      description: this.prod.descrição,
+      category: this.prod.categoria,
+      availability: this.prod.temEmEstoque
     };
   }
-
+  
   addToCart() {
-    console.log(`${this.product.name} adicionado ao carrinho!`);
+   
+   let res= this.dados.addCar(Number(this.id))
+    console.log(res,"add carrinho")
+    
   }
-
+  voltar(){
+    this.rot.navigate(["menu"])
+  }
 }

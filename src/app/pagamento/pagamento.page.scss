@@ -67,13 +67,6 @@
    
 
 }
-ion-avatar{
-
-    height: auto;
-    margin: 1%;
-    
-
-}
 .per{
     width:20%;
   
@@ -93,4 +86,13 @@ ion-avatar{
     color: black;
     font-size: 20px;
     padding: 0;
+}
+.car{
+    box-shadow: 2px 2px black;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+}
+.car02{
+    margin-left: 10px;
 }

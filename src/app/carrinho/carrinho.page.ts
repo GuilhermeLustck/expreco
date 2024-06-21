@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CarrinhoService } from '../conf/carrinho.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-carrinho',
@@ -8,11 +9,23 @@ import { CarrinhoService } from '../conf/carrinho.service';
 })
 export class CarrinhoPage implements OnInit {
   anunci:any
-  constructor( private carrin:CarrinhoService) { }
+  nad:any
+  
+  constructor( private carrin:CarrinhoService,private rot:Router) { }
 
   ngOnInit() {
-    this.anunci=this.carrin.get()
-  }
+
+   this.nad=this.carrin.getCar()
+   this.anunci=JSON.parse(this.nad)
+
   
+  }
+
+
+
+
+  paga(){
+    this.rot.navigate(["pagamento"])
+  }
   
 }
